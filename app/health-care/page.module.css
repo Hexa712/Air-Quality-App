@@ -1,0 +1,377 @@
+/* Shared page shell styles for Health Care & Traffic */
+.page {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.orb1 {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.14) 0%, transparent 70%);
+    top: -100px;
+    right: -100px;
+    animation: orbMove 20s ease-in-out infinite;
+}
+
+.orb2 {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, transparent 70%);
+    bottom: -80px;
+    left: -80px;
+    animation: orbMove 25s ease-in-out infinite reverse;
+}
+
+.inner {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* ── Page Header ── */
+.pageHeader {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    animation: fadeInUp 0.6s ease both;
+}
+
+.headerIcon {
+    width: 58px;
+    height: 58px;
+    border-radius: 16px;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1.5px solid rgba(52, 211, 153, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.15);
+    flex-shrink: 0;
+}
+
+.pageTitle {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: #f0fdf4;
+}
+
+.pageSubtitle {
+    font-size: 0.95rem;
+    color: rgba(240, 253, 244, 0.5);
+    margin-top: 2px;
+}
+
+/* ── Profile Card ── */
+.profileCard {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    background: rgba(245, 158, 11, 0.06);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    border-radius: 14px;
+    font-size: 0.9rem;
+    color: rgba(240, 253, 244, 0.8);
+    animation: fadeInUp 0.6s 0.1s ease both;
+}
+
+.toggle {
+    margin-left: auto;
+    padding: 6px 16px;
+    border-radius: 50px;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    color: rgba(240, 253, 244, 0.6);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.25s ease;
+    background: transparent;
+}
+
+.toggleOn {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: rgba(239, 68, 68, 0.4);
+    color: #ef4444;
+}
+
+/* ── Search ── */
+.searchRow {
+    display: flex;
+    gap: 12px;
+    animation: fadeInUp 0.6s 0.15s ease both;
+}
+
+.searchBox {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 16px;
+    background: rgba(10, 22, 15, 0.7);
+    border: 1px solid rgba(52, 211, 153, 0.15);
+    border-radius: 14px;
+    backdrop-filter: blur(12px);
+    transition: border-color 0.25s ease;
+}
+
+.searchBox:focus-within {
+    border-color: rgba(52, 211, 153, 0.4);
+    box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.06);
+}
+
+.searchInput {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #f0fdf4;
+    font-size: 0.95rem;
+    font-family: inherit;
+    padding: 16px 0;
+}
+
+.searchInput::placeholder {
+    color: rgba(240, 253, 244, 0.3);
+}
+
+.searchBtn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 24px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    border-radius: 14px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: inherit;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+    white-space: nowrap;
+    height: 56px;
+}
+
+.searchBtn:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(16, 185, 129, 0.4);
+}
+
+.searchBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.spin {
+    animation: spin 1s linear infinite;
+}
+
+/* ── Alert Banner ── */
+.alertBanner {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 18px 20px;
+    border-radius: 14px;
+    border: 1px solid;
+    background: rgba(0, 0, 0, 0.25);
+    animation: fadeInUp 0.4s ease both;
+}
+
+.alertBanner strong {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 4px;
+    font-size: 0.95rem;
+}
+
+.alertBanner p {
+    font-size: 0.88rem;
+    color: rgba(240, 253, 244, 0.65);
+    line-height: 1.5;
+}
+
+/* ── Metrics Grid ── */
+.metricsGrid {
+    display: grid;
+    grid-template-columns: 1fr repeat(4, 1fr);
+    gap: 14px;
+    animation: fadeInUp 0.4s 0.1s ease both;
+}
+
+.aqiCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 24px 16px;
+    border-radius: 16px;
+    border: 1px solid;
+    grid-row: span 1;
+}
+
+.aqiEmoji {
+    font-size: 2rem;
+}
+
+.aqiValue {
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: -2px;
+}
+
+.aqiLabel {
+    font-size: 0.8rem;
+    color: rgba(240, 253, 244, 0.6);
+    text-align: center;
+}
+
+.aqiBar {
+    width: 80%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 2px;
+    margin-top: 4px;
+    overflow: hidden;
+}
+
+.aqiBarFill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 1s ease;
+}
+
+.metricCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 20px 12px;
+    background: rgba(10, 22, 15, 0.6);
+    border: 1px solid rgba(52, 211, 153, 0.1);
+    border-radius: 14px;
+    text-align: center;
+}
+
+.metricIcon {
+    font-size: 1.4rem;
+}
+
+.metricValue {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.metricLabel {
+    font-size: 0.75rem;
+    color: rgba(240, 253, 244, 0.45);
+}
+
+/* ── Map ── */
+.mapWrapper {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(52, 211, 153, 0.15);
+    animation: fadeInUp 0.4s 0.2s ease both;
+}
+
+.mapHeader {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: rgba(10, 22, 15, 0.8);
+    font-size: 0.85rem;
+    color: rgba(240, 253, 244, 0.6);
+    border-bottom: 1px solid rgba(52, 211, 153, 0.1);
+}
+
+.mapHeader strong {
+    color: #f0fdf4;
+}
+
+.mapContainer {
+    height: 420px;
+    width: 100%;
+    position: relative;
+}
+
+.mapLoading {
+    height: 420px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(10, 22, 15, 0.6);
+    color: rgba(240, 253, 244, 0.4);
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+/* ── Empty State ── */
+.emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 80px 24px;
+    text-align: center;
+    animation: fadeInScale 0.5s ease both;
+}
+
+.emptyIcon {
+    font-size: 4rem;
+}
+
+.emptyState h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #f0fdf4;
+}
+
+.emptyState p {
+    font-size: 0.9rem;
+    color: rgba(240, 253, 244, 0.45);
+    max-width: 380px;
+    line-height: 1.6;
+}
+
+/* ── Results wrapper ── */
+.results {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media (max-width: 640px) {
+    .metricsGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .searchRow {
+        flex-direction: column;
+    }
+
+    .searchBtn {
+        height: 52px;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,476 @@
+/* ─── Login Page ─────────────────────────────────────────────── */
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--background);
+    /* #050d0a from globals */
+}
+
+/* ─── Animated Background ───────────────────────────────────── */
+
+.bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.orb1 {
+    position: absolute;
+    top: -15%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.18) 0%, transparent 65%);
+    filter: blur(70px);
+    animation: orbFloat 10s ease-in-out infinite;
+}
+
+.orb2 {
+    position: absolute;
+    bottom: -15%;
+    left: -10%;
+    width: 550px;
+    height: 550px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, transparent 65%);
+    filter: blur(70px);
+    animation: orbFloat 14s ease-in-out infinite reverse;
+}
+
+.orb3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(52, 211, 153, 0.06) 0%, transparent 70%);
+    filter: blur(60px);
+    animation: orbFloat 18s ease-in-out infinite;
+}
+
+.gridLines {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+}
+
+@keyframes orbFloat {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(20px, -30px) scale(1.05);
+    }
+
+    66% {
+        transform: translate(-15px, 15px) scale(0.97);
+    }
+}
+
+/* ─── Auth Card ─────────────────────────────────────────────── */
+
+.authCard {
+    width: 100%;
+    max-width: 460px;
+    padding: 44px 40px;
+    position: relative;
+    z-index: 1;
+    background: rgba(10, 24, 17, 0.75);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(52, 211, 153, 0.15);
+    border-radius: 28px;
+    box-shadow:
+        0 0 60px rgba(16, 185, 129, 0.10),
+        0 32px 64px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(52, 211, 153, 0.08);
+    animation: cardIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes cardIn {
+    from {
+        opacity: 0;
+        transform: translateY(28px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ─── Brand ─────────────────────────────────────────────────── */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 32px;
+}
+
+.brandIcon {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--primary) 0%, #059669 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35);
+    flex-shrink: 0;
+}
+
+.brandName {
+    font-size: 1.3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.02em;
+}
+
+/* ─── Header ────────────────────────────────────────────────── */
+
+.header {
+    margin-bottom: 28px;
+}
+
+.title {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 8px;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: rgba(240, 253, 244, 0.5);
+    line-height: 1.55;
+}
+
+/* ─── Alerts ─────────────────────────────────────────────────── */
+
+.alertError {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(244, 63, 94, 0.1);
+    border: 1px solid rgba(244, 63, 94, 0.25);
+    color: #fb7185;
+    font-size: 0.875rem;
+    padding: 12px 16px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    animation: slideIn 0.3s ease;
+}
+
+.alertSuccess {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    color: #34d399;
+    font-size: 0.875rem;
+    padding: 12px 16px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ─── Google Button ──────────────────────────────────────────── */
+
+.googleBtn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(240, 253, 244, 0.85);
+    padding: 13px 20px;
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    margin-bottom: 24px;
+}
+
+.googleBtn:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.18);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.googleBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ─── Divider ────────────────────────────────────────────────── */
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(52, 211, 153, 0.1);
+}
+
+.divider span {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    color: rgba(240, 253, 244, 0.3);
+    white-space: nowrap;
+}
+
+/* ─── Form ───────────────────────────────────────────────────── */
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: rgba(240, 253, 244, 0.55);
+    letter-spacing: 0.03em;
+    padding-left: 2px;
+}
+
+.inputWrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(16, 185, 129, 0.04);
+    border: 1px solid rgba(52, 211, 153, 0.12);
+    padding: 0 16px;
+    border-radius: 14px;
+    transition: all 0.25s ease;
+    height: 52px;
+}
+
+.inputWrapper:focus-within {
+    border-color: var(--primary);
+    background: rgba(16, 185, 129, 0.07);
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.08);
+}
+
+.inputIcon {
+    color: rgba(240, 253, 244, 0.35);
+    flex-shrink: 0;
+    transition: color 0.25s ease;
+}
+
+.inputWrapper:focus-within .inputIcon {
+    color: var(--primary);
+}
+
+.inputWrapper input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 0.98rem;
+    font-family: inherit;
+    min-width: 0;
+}
+
+.inputWrapper input::placeholder {
+    color: rgba(240, 253, 244, 0.2);
+}
+
+/* Override browser autofill — use exact card+input blended color */
+.inputWrapper input:-webkit-autofill,
+.inputWrapper input:-webkit-autofill:hover,
+.inputWrapper input:-webkit-autofill:focus,
+.inputWrapper input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 60px #0d1f16 inset !important;
+    -webkit-text-fill-color: white !important;
+    transition: background-color 5000s ease-in-out 0s;
+    caret-color: white;
+    border-radius: 12px;
+}
+
+.eyeBtn {
+    background: none !important;
+    border: none !important;
+    padding: 4px;
+    color: rgba(240, 253, 244, 0.3);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: color 0.2s ease;
+    outline: none;
+    box-shadow: none !important;
+}
+
+.eyeBtn:hover {
+    color: var(--primary);
+}
+
+/* ─── Submit Button ──────────────────────────────────────────── */
+
+.submitBtn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--primary) 0%, #059669 100%);
+    color: white;
+    padding: 15px 28px;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 1rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 24px rgba(16, 185, 129, 0.35);
+    border: none;
+    margin-top: 6px;
+    letter-spacing: 0.01em;
+}
+
+.submitBtn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(16, 185, 129, 0.5);
+}
+
+.submitBtn:active:not(:disabled) {
+    transform: translateY(0px);
+}
+
+.submitBtn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* ─── Loading Spinner ────────────────────────────────────────── */
+
+.spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.25), 0 0 20px rgba(16, 185, 129, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 0 0 14px rgba(16, 185, 129, 0), 0 0 30px rgba(16, 185, 129, 0.2);
+    }
+}
+
+/* ─── Footer Toggle ──────────────────────────────────────────── */
+
+.footer {
+    margin-top: 28px;
+    text-align: center;
+}
+
+.footer p {
+    color: rgba(240, 253, 244, 0.45);
+    font-size: 0.9rem;
+}
+
+.toggleBtn {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 0.9rem;
+    font-family: inherit;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 4px;
+    transition: color 0.2s ease;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    text-decoration: none;
+    display: inline;
+    line-height: inherit;
+}
+
+.toggleBtn:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+.spin {
+    animation: spin 1s linear infinite;
+}
+
+.toggleBtn:focus {
+    outline: none;
+    box-shadow: none;
+}
