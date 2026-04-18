@@ -63,7 +63,11 @@ export default function LoginPage() {
             // Sign in silently to get the user object, then send verification
             const cred = await signInWithEmailAndPassword(auth, email.trim(), password);
             
-            await sendEmailVerification(cred.user);
+            const actionCodeSettings = {
+                url: window.location.origin + '/login',
+                handleCodeInApp: true,
+            };
+            await sendEmailVerification(cred.user, actionCodeSettings);
             
             setSuccess('✉️ Verification email sent! PLEASE CHECK YOUR SPAM/JUNK FOLDER.');
             setError('');
@@ -159,7 +163,11 @@ export default function LoginPage() {
 
                 // Step 4: Send verification email
                 try {
-                    await sendEmailVerification(userCredential.user);
+                    const actionCodeSettings = {
+                        url: window.location.origin + '/login',
+                        handleCodeInApp: true,
+                    };
+                    await sendEmailVerification(userCredential.user, actionCodeSettings);
                 } catch (emailErr: any) {
                     console.error("Email send failed:", emailErr);
                     // It likely failed due to Firebase free tier quota or blocked IP
