@@ -226,7 +226,7 @@ function MapContent() {
                     onMapClick={handleMapClick}
                     clickedMarker={clickedMarker}
                     markers={markers}
-                    locationName={selectedLocation?.name}
+                    locationName={selectedLocation ? `${selectedLocation.name} (AQI: ${selectedLocation.aqi})` : undefined}
                     loading={fetchLoading}
                 />
 
@@ -262,7 +262,7 @@ function MapContent() {
                 {/* Scroll Indicator for Mobile */}
                 {isMobile && (
                     <button className={styles.scrollIndicator} onClick={scrollToDetails}>
-                        <ChevronDown size={20} />
+                        <ChevronDown size={14} />
                         <span>Show Details</span>
                     </button>
                 )}

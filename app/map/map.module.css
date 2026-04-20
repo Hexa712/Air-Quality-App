@@ -357,7 +357,7 @@
 
     .controls {
         position: absolute;
-        bottom: 24px;
+        bottom: 155px;
         right: 16px;
         top: auto;
         display: flex;
@@ -373,7 +373,7 @@
     .searchOverlay {
         top: 12px;
         left: 12px;
-        right: 12px;
+        right: 55px; /* Clear space for map zoom controls */
         width: auto;
         transform: none;
         max-width: none;
@@ -390,7 +390,7 @@
 
     .scrollIndicator {
         position: absolute;
-        bottom: 40px;
+        bottom: 95px;
         left: 50%;
         transform: translateX(-50%);
         display: flex;
@@ -400,10 +400,10 @@
         background: rgba(16, 24, 20, 0.8);
         backdrop-filter: blur(16px);
         border: 1px solid rgba(52, 211, 153, 0.2);
-        padding: 8px 18px;
+        padding: 6px 14px;
         border-radius: 50px;
         color: #34d399;
-        font-size: 0.75rem;
+        font-size: 0.65rem;
         font-weight: 700;
         z-index: 1500;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
