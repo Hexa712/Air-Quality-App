@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import { AuthProvider } from "@/lib/AuthContext";
 
+// Vercel trigger: 2026-04-20
 export const metadata: Metadata = {
   title: "Respira Flare – Smart Environmental Intelligence",
   description: "Monitor real-time pollution, get personalized health routing, and analyze atmospheric impact with Respira Flare.",
